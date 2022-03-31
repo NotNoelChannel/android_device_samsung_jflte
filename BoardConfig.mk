@@ -36,6 +36,7 @@ BOARD_KERNEL_IMAGE_NAME := zImage
 TARGET_KERNEL_CONFIG := side_jf_defconfig
 TARGET_RECOVERY_FSTAB := device/samsung/jflte/rootdir/twrp.fstab
 BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_TREE)/mkbootimg.mk
+BOARD_CANT_BUILD_RECOVERY_FROM_BOOT_PATCH := true
 
 # Kernel
 BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom user_debug=31 zcache msm_rtb.filter=0x3F ehci-hcd.park=3
