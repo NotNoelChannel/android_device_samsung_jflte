@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "remote":"github",
+    "repository": "JDCTeam/android_device_qcom_sepolicy",
+    "target_path": "device/qcom/sepolicy",
+    "revision":"jdc"
+  },
+  {
+    "remote":"github",
+    "repository": "JDCTeam/android_kernel_samsung_jf",
+    "target_path": "kernel/samsung/jf",
+    "revision":"jdc-twrp"
+  },
+  {
+    "remote":"github",
+    "repository": "JDCTeam/android_device_samsung_qcom-common",
+    "target_path": "device/samsung/qcom-common",
+    "revision":"jdc-twrp"
+  }
+]
