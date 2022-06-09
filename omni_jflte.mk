@@ -25,7 +25,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_base.mk)
 $(call inherit-product, device/samsung/jflte/device.mk)
 
 # Inherit some common LineageOS stuff.
-$(call inherit-product, vendor/pb/config/common.mk)
+$(call inherit-product, vendor/omni/config/common.mk)
 
 # Inherit some JDCTeam stuff.
 #$(call inherit-product, vendor/jdc/config/common.mk)
