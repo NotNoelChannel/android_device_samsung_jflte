@@ -26,8 +26,9 @@ jobs:
           sudo curl http://commondatastorage.googleapis.com/git-repo-downloads/repo | sudo tee /usr/bin/repo > /dev/zero
           sudo chmod 777 /usr/bin/repo
           repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b twrp-6.0
+          mkdir -p .repo/local_manifests
+          curl https://gist.githubusercontent.com/TriDiscord/67c159dad9113e95c7a9e8f752ee01e8/raw > .repo/local_manifets/jf6.xml
           repo sync -c --force-sync --optimized-fetch --no-tags --no-clone-bundle --prune -j$(nproc --all)
-          git clone --depth=1 --branch twrp-6.0 --single-branch https://github.com/TriDiscord/twrp_device_samsung_jflte.git ~/TWRP/device/samsung/jflte
 
       - name: Building TWRP
         run: |
@@ -36,7 +37,6 @@ jobs:
           export ALLOW_MISSING_DEPENDENCIES=true
           export LC_ALL=C
           lunch omni_jflte-eng
-          repo sync -c --force-sync --optimized-fetch --no-tags --no-clone-bundle --prune -j$(nproc --all)
           mka recoveryimage
 
       - name: Uploading TWRP builds
@@ -68,7 +68,8 @@ jobs:
           sudo chmod 777 /usr/bin/repo
           repo init --depth=1 -u https://github.com/OrangeFoxRecovery/fox-6.0_manifest.git
           repo sync -c --force-sync --optimized-fetch --no-tags --no-clone-bundle --prune -j$(nproc --all)
-          git clone --depth=1 --branch twrp-6.0 --single-branch https://github.com/TriDiscord/twrp_device_samsung_jflte.git ~/TWRP/device/samsung/jflte
+          mkdir -p .repo/local_manifests
+          curl https://gist.githubusercontent.com/TriDiscord/67c159dad9113e95c7a9e8f752ee01e8/raw > .repo/local_manifets/jf6.xml
 
       - name: Building OFRP
         run: |
@@ -78,7 +79,6 @@ jobs:
           export FOX_USE_TWRP_RECOVERY_IMAGE_BUILDER=1
           export LC_ALL=C
           lunch omni_jflte-eng
-          repo sync -c --force-sync --optimized-fetch --no-tags --no-clone-bundle --prune -j$(nproc --all)
           make -j$(nproc --all) recoveryimage
 
       - name: Uploading OFRP builds
