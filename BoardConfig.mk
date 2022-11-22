@@ -13,10 +13,6 @@ TARGET_BOARD_PLATFORM_GPU := qcom-adreno320
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8960
 
-# Flags
-TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
-TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
-
 # Architecture
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
@@ -68,11 +64,4 @@ TW_NO_REBOOT_BOOTLOADER := true
 TW_HAS_DOWNLOAD_MODE := true
 TW_INCLUDE_NTFS_3G := true
 TW_EXCLUDE_SUPERSU := true
-TW_SCREEN_BLANK_ON_BOOT := true
-
-# Encryption support
-TW_INCLUDE_CRYPTO := true
-TW_CRYPTO_FS_FLAGS := "0x00000406"
-TW_CRYPTO_FS_OPTIONS := "nosuid,nodev,noatime,noauto_da_alloc,discard,journal_async_commit,errors=panic      wait,check,encryptable=footer"
-TW_CRYPTO_FS_TYPE := "ext4"
-TW_CRYPTO_REAL_BLKDEV := "/dev/block/platform/msm_sdcc.1/by-name/userdata"
+TW_FORCE_USE_BUSYBOX := true
